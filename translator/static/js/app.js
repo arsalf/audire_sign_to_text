@@ -35,6 +35,7 @@ dropArea.addEventListener("drop", (event)=>{
   event.preventDefault(); //preventing from default behaviour
   //getting user select file and [0] this means if user select multiple files then we'll select only the first one
   file = event.dataTransfer.files[0];
+  console.log(file);
   showFile(); //calling function
 });
 
@@ -46,7 +47,7 @@ function showFile(){
     fileReader.onload = ()=>{
       let fileURL = fileReader.result; //passing user file source in fileURL variable
         // UNCOMMENT THIS BELOW LINE. I GOT AN ERROR WHILE UPLOADING THIS POST SO I COMMENTED IT
-      // let imgTag = `<img src="${fileURL}" alt="image">`; //creating an img tag and passing user selected file source inside src attribute
+      let imgTag = `<img src="${fileURL}" alt="image">`; //creating an img tag and passing user selected file source inside src attribute
       dropArea.innerHTML = imgTag; //adding that created img tag inside dropArea container
     }
     fileReader.readAsDataURL(file);
