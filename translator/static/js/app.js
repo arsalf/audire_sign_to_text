@@ -41,13 +41,17 @@ dropArea.addEventListener("drop", (event)=>{
 
 function showFile(){
   let fileType = file.type; //getting selected file type
-  let validExtensions = ["image/jpeg", "image/jpg", "image/png"]; //adding some valid image extensions in array
+  let validExtensions = ["video/mp4"]; //adding some valid image extensions in array
   if(validExtensions.includes(fileType)){ //if user selected file is an image file
     let fileReader = new FileReader(); //creating new FileReader object
     fileReader.onload = ()=>{
       let fileURL = fileReader.result; //passing user file source in fileURL variable
         // UNCOMMENT THIS BELOW LINE. I GOT AN ERROR WHILE UPLOADING THIS POST SO I COMMENTED IT
-      let imgTag = `<img src="${fileURL}" alt="image">`; //creating an img tag and passing user selected file source inside src attribute
+      let imgTag = `
+      <video width="320" height="240" autoplay  controls>
+        <source src="${fileURL}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>`; //creating an img tag and passing user selected file source inside src attribute
       dropArea.innerHTML = imgTag; //adding that created img tag inside dropArea container
     }
     fileReader.readAsDataURL(file);
