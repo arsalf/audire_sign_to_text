@@ -21,13 +21,13 @@ input.addEventListener("change", function(){
 dropArea.addEventListener("dragover", (event)=>{
   event.preventDefault(); //preventing from default behaviour
   dropArea.classList.add("active");
-  dragText.textContent = "Release to Upload File";
+  dragText.textContent = "Release to Upload Video";
 });
 
 //If user leave dragged File from DropArea
 dropArea.addEventListener("dragleave", ()=>{
   dropArea.classList.remove("active");
-  dragText.textContent = "Drag & Drop to Upload File";
+  dragText.textContent = "Drag & Drop to Upload Video";
 });
 
 //If user drop File on DropArea
@@ -56,7 +56,7 @@ function showFile(){
     }
     fileReader.readAsDataURL(file);
   }else{
-    alert("This is not an Image File!");
+    alert("This is not an Video File!");
     dropArea.classList.remove("active");
     dragText.textContent = "Drag & Drop to Upload File";
   }
